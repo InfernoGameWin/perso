@@ -1,0 +1,10 @@
+# .gitignore
+secret
+data
+setToken.py
+tokenBot.txt
+.env
+.idea
+ancien_main.py
+__pycache__
+
