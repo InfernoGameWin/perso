@@ -82,9 +82,7 @@ class EconomyCommands(commands.Cog):
         # PLAY ROULETTE
 
         #CONSTANTS
-        global plr_color
-        global plr_number
-        global color
+        global plr_color, message, plr_number, color
 
         #CHECK IF THE USER HAS A BANK ACCOUNT
         if await EconomyCommands.is_registered(ctx.author.id) and await EconomyCommands.get_money(ctx.author.id) > 0:
@@ -125,17 +123,17 @@ class EconomyCommands(commands.Cog):
                 await actual_message.clear_reactions()
                 await actual_message.edit(embed=embed)
                 await actual_message.add_reaction("⚫")
-                await actual_message.add_reaction("ðﾟﾔﾴ") # un probleme ici
-                await actual_message.add_reaction("ðﾟﾟﾢ") # et la aussi
+                await actual_message.add_reaction("🔴") # un probleme ici
+                await actual_message.add_reaction("🟢") # et la aussi
                 await actual_message.add_reaction("❌")
 
                 reaction, user = await self.bot.wait_for("reaction_add", timeout=30, check=check_reaction)
 
                 if reaction.emoji == "⚫":
                     plr_color = "noir"
-                elif reaction.emoji == "ðﾟﾔﾴ":
+                elif reaction.emoji == "🔴":
                     plr_color = "rouge"
-                elif reaction.emoji == "ðﾟﾟﾢ":
+                elif reaction.emoji == "🟢":
                     plr_color = "vert"
                 elif reaction.emoji == "❌":
                     plr_color = None
